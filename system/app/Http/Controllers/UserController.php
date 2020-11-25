@@ -5,14 +5,14 @@ use App\User;
 
 class UserController extends controller{
 	function index(){
-		$data['list_user'] = user::all();
+		$data['list_user'] = User::all();
 		return view('user.index', $data);
 	}
 	function create(){
 		return view('user.create');
 	}
 	function store(){
-		$user= new user;
+		$user= new User;
 		$user-> nama = request('nama');
 		$user-> username = request('username');
 		$user-> email = request('email');
@@ -30,14 +30,14 @@ class UserController extends controller{
 		return view('user.edit', $data);
 	}
 	function update(User $user){
+		$user= new User;
 		$user-> nama = request('nama');
-		$user-> harga = request('harga');
-		$user-> berat = request('berat');
-		$user-> stok = request('stok');
-		$user-> deskripsi = request('deskripsi');
+		$user-> username = request('username');
+		$user-> email = request('email');
+		$user-> password = bcrypt(request('password'));
 		$user->save();
 
-		return redirect('userr')->with('success', 'data berhasil di edit');
+		return redirect('user')->with('success', 'data berhasil di edit');
 	}
 	function destroy(User $user){
 		$user->delete();

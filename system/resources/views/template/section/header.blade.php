@@ -114,6 +114,20 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
+            
+             <a href="#" class="dropdown-item">
+                <i class="fa.fa-cog"></i> profil
+                </a> 
+             <a href="#" class="dropdown-item">
+                 <i class="fa.fa-cog"></i> setting
+                </a>
+            <a href="{{url('logout')}}" class="dropdown-item">
+                 <i class="fa.fa-cog"></i> logout
+            </a>
+             <a href="{{url('daftar')}}" class="nav-link">
+                 <i class="fas.fa-user nav-icon"></i> daftar
+            </a>
+            <div class="dropdown-divider"></div>
       </li>
     </ul>
   </nav

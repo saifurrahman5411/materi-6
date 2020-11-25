@@ -1,43 +1,41 @@
 @extends('template.base')
 
 @section('content')
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card mt-4">
-					<div class="card-header">
-						DATA USER
-						<form action="{{url('user')}}" method="post">
-							@csrf
-					</div>
-					<div class="card-body">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 mt-5">
+			<div class="card">
+				<div class="card-header">
+					Tambah Data User
+				</div>
+				<div class="card-body">
+					<form action="{{url('admin/user')}}" method="post">
+						@csrf
 					<div class="form-group">
-						<label class="control-label" for="">Nama</label>
+						<label for="" class="control-label">Nama </label>
 						<input type="text" name="nama" class="form-control">
 					</div>
+
 					<div class="form-group">
-						<label class="control-label" for="">username</label>
-						<input type="text" name="usernane" class="form-control">
+						<label for="" class="control-label">Username </label>
+						<input type="text" name="username" class="form-control">
 					</div>
+
 					<div class="form-group">
-						<label class="control-label" for="">email</label>
+						<label for="" class="control-label">Email </label>
 						<input type="text" name="email" class="form-control">
 					</div>
+
 					<div class="form-group">
-						<label class="control-label" for="">password</label>
-						<input type="text" name="password" class="form-control">
+						<label for="" class="control-label">Password </label>
+						<input type="password" name="password" class="form-control">
 					</div>
-					
-					</div>
-					
-					<button class="btn btn-dark float-right"><i class="fa fa-save"> simpan</i></button>
+
+					<button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Simpan</button>
 					</form>
-					</div>
-				</div>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
-
+</div>
 @endsection

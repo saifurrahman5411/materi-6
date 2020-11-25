@@ -26,27 +26,49 @@ Route::get('kategory',[HomeController:: class,'showKategory']);
 Route::get('promo',[HomeController:: class,'showPromo']);
 Route::get('pelanggan',[HomeController:: class,'showPelanggan']);
 Route::get('supplier',[HomeController:: class,'showSupplier']);
-Route::get('login',[AuthController:: class,'showLogin']);
 Route::get('create',[HomeController:: class,'showCreate']);
 Route::get('template.base',[HomeController:: class,'showTemplate']);
 
 
-Route::get('user',[UserController:: class,'index']);
-Route::get('userk/create',[UserController:: class,'create']);
-Route::post('user',[UserController:: class,'store']);
-Route::get('user/{user}',[UserController:: class, 'show']);
-Route::get('user/{user}/edit',[UserController:: class, 'edit']);
-Route::put('user/{user}',[UserController:: class, 'update']);
-Route::delete('user/{user}',[UserController:: class, 'destroy']);
 
 
 
 
-Route::get('promo',[PromoController:: class,'index']);
-Route::get('promo/create',[PromoController:: class,'create']);
-Route::post('promo',[PromoController:: class,'store']);
-Route::get('promo/{promo}',[PromoController:: class, 'show']);
-Route::get('promo/{promo}/edit',[PromoController:: class, 'edit']);
-Route::put('promo/{promo}',[PromoController:: class, 'update']);
-Route::delete('promo/{promo}',[PromoController:: class, 'destroy']);
 
+Route::prefix('admin')->middleware('auth')->group(function(){
+			Route::get('produk',[ProdukController:: class,'index']);
+			Route::get('produk/create',[ProdukController:: class,'create']);
+			Route::post('produk',[ProdukController:: class,'store']);
+			Route::get('produk/{produk}',[ProdukController:: class, 'show']);
+			Route::get('produk/{produk}/edit',[ProdukController:: class, 'edit']);
+			Route::put('produk/{produk}',[ProdukController:: class, 'update']);
+			Route::delete('produk/{produk}',[ProdukController:: class, 'destroy']);
+
+
+
+			Route::get('user',[UserController:: class,'index']);
+			Route::get('user/create',[UserController:: class,'create']);
+			Route::post('user',[UserController:: class,'store']);
+			Route::get('user/{user}',[UserController:: class, 'show']);
+			Route::get('user/{user}/edit',[UserController:: class, 'edit']);
+			Route::put('user/{user}',[UserController:: class, 'update']);
+			Route::delete('user/{user}',[UserController:: class, 'destroy']);
+
+
+
+			Route::get('promo',[PromoController:: class,'index']);
+			Route::get('promo/create',[PromoController:: class,'create']);
+			Route::post('promo',[PromoController:: class,'store']);
+			Route::get('promo/{promo}',[PromoController:: class, 'show']);
+			Route::get('promo/{promo}/edit',[PromoController:: class, 'edit']);
+			Route::put('promo/{promo}',[PromoController:: class, 'update']);
+			Route::delete('promo/{promo}',[PromoController:: class, 'destroy']);
+
+
+		});
+
+
+
+Route::get('login',[AuthController:: class,'showLogin']);
+Route::post('login',[AuthController:: class,'LoginProcess'])->name('login');
+Route::get('logout',[AuthController:: class,'logout']);

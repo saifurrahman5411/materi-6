@@ -8,9 +8,9 @@
 				<div class="card mt-4">
 					<div class="card-header">
 						
-						<form action="{{url('promo', $promo->id)}}" method="post">
+						<form action="{{url('admin/promo', $promo->id)}}" method="post">
 							@csrf
-							@method('PUT')
+							@method('put')
 					</div>
 					<div class="card-body">
 					<div class="form-group">

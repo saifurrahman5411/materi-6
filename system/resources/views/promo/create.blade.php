@@ -8,7 +8,7 @@
 				<div class="card mt-4">
 					<div class="card-header">
 						promo terbaru
-						<form action="{{url('promo')}}" method="post">
+						<form action="{{url('admin/promo')}}" method="post">
 							@csrf
 					</div>
 					<div class="card-body">

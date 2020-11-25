@@ -1,26 +1,31 @@
 @extends('template.base')
 
 @section('content')
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card mt-4">
-					<div class="card-header">
-						Detail Data user
-					</div>
-					<div class="card-body">
-						<h4>{{$user->nama}}</h4><hr>
-						<p>Rp. {{number_format($user->harga)}} |
-							Stok : {{$user->stok}} |
-							Berat : {{$user->berat}} gr |
-							Warna : {{$user->warna}} 
-						</p>
-						{!! nl2br($user->deskripsi) !!}
-					</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 mt-5">
+			<div class="card">
+				<div class="card-header">
+					Detail Data user
+				</div>
+				<div class="card-body">
+					<table class="table">
+						<tbody>
+							<h3>{{$user->nama}}</h3>
+							<hr>
+							<p>
+								{{"@". $user->username}} |
+								Email : {{$user->email}}
+							</p>
+							<p>
+								{!! nl2br($user->deskripsi) !!}
+							</p>
+						</tbody>
+					</table>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
+</div>
 
 @endsection
