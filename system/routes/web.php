@@ -32,10 +32,16 @@ Route::get('template.base',[HomeController:: class,'showTemplate']);
 
 
 
+Route::get('test/{produk}/{hargaMin?}/{hargaMax?}',[HomeController:: class,'test']);
+	
+	Route::prefix('admin')->middleware('auth')->group(function(){
+	Route::post('produk/filter', [ProdukController::class, 'Filter']);
+	Route::resource('produk', ProdukController::class);
+	Route::resource('user', UserController::class);
+	Route::resource('promo', PromoController::class);
 
 
-
-Route::prefix('admin')->middleware('auth')->group(function(){
+		
 			Route::get('produk',[ProdukController:: class,'index']);
 			Route::get('produk/create',[ProdukController:: class,'create']);
 			Route::post('produk',[ProdukController:: class,'store']);
@@ -64,9 +70,7 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 			Route::put('promo/{promo}',[PromoController:: class, 'update']);
 			Route::delete('promo/{promo}',[PromoController:: class, 'destroy']);
 
-
-		});
-
+			});
 
 
 Route::get('login',[AuthController:: class,'showLogin']);

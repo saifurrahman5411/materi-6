@@ -7,7 +7,7 @@
 			<div class="col-md-12">
 				<div class="card mt-4">
 					<div class="card-header">
-						promo terbaru
+						produk terbaru
 						<form action="{{url('admin/produk')}}" method="post">
 							@csrf
 					</div>
